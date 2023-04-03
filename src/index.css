@@ -149,3 +149,8 @@ img {
   margin: 10px;
   /* border: 1px solid black; */
 }
+
+#big-img {
+  width: 500px;
+  height: 500px;
+}
