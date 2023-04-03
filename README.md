@@ -27,10 +27,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-This shows searching through the dataset
-<img src='5-walkthrough.gif' title='Video Walkthrough 1' width='' alt='Video Walkthrough 1' />
-This shows filtering items in the database by specified categories
-<img src='5-walkthrough-2.gif' title='Video Walkthrough 2' width='' alt='Video Walkthrough 2' />
+<img src='6-walkthrough-2.gif' title='Video Walkthrough 1' width='' alt='Video Walkthrough 1' />
+
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with [Kap](https://getkap.co/) for macOS  
 <!-- Recommended tools:
