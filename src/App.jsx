@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 import RecipeInfo from './components/recipeInfo'
 import { Link } from 'react-router-dom' 
 import RecipeChart from './components/recipeChart'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Label } from "recharts"
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Label, BarChart, Bar, Legend } from "recharts"
 
 function App() {
   const [list, setList] = useState(null)
@@ -163,9 +163,26 @@ function App() {
             <Label value="Indices" position="insideBottom" dy={20}/>
           </XAxis>
 
-          <YAxis label="Ids"/>
+          <YAxis label="Ids">
+            {/* <Label dx={50}/> */}
+          </YAxis>
           <Tooltip/>
         </LineChart>
+        <BarChart
+          width={1300}
+          height={500}
+          data={data2}
+          margin={{top:10, right:30, left:20, bottom:30}}
+          barSize={20}
+        >
+          <XAxis dataKey="" scale="band" padding={{ left: 0, right: 0 }}></XAxis>
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <CartesianGrid strokeDasharray="3 3"/>
+          <Bar dataKey="id"/>
+
+        </BarChart>
       </div>
       <div className="whole-page">
         <div className='header'>
