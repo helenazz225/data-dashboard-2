@@ -38,7 +38,7 @@ GIF created with [Kap](https://getkap.co/) for macOS
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Encountered a bit of trouble making the charts (had trouble making sure input data was properly formatted).
 
 ## License
 
