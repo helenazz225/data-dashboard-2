@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-<img src='6-walkthrough-2.gif' title='Video Walkthrough 1' width='' alt='Video Walkthrough 1' />
+<img src='6-walkthrough-regrade.gif' title='Video Walkthrough 1' width='' alt='Video Walkthrough 1' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with [Kap](https://getkap.co/) for macOS  
