@@ -1,29 +1,24 @@
-## Web Development Project 5 - *Data Dashboard*
+## Web Development Project 6 - *Data Dashboard-2*
 
 Submitted by: **Helena Zhang**
 
-This web app: **Retrieves recipes from a public API. It retrieves a default numbver of 25 recipes and displays an image, the name, and the ID. The user can search the retrieved dataset by title or ID, and can filter the information retrieved from the database based on the diet or cuisine.**
+This web app: **Retrieves recipes from a public API. It retrieves a default numbver of 25 recipes and displays an image, the name, and the ID, and displays a graph showing the relationship between the index of a retrieved recipe and its ID number. The user can search the retrieved dataset by title or ID, and can filter the information retrieved from the database based on the diet or cuisine. Also, when clicking on any recipe title, the user will be routed to a page containing more detailed info about the recipe (larger image, title, id, link that recipe is from, health score, and whether or not its vegetarian)**
 
-Time spent: **5** hours spent in total
+Time spent: **7** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The list displays a list of data fetched using an API call**
-- [x] **Data uses the useEffect React hook and async/await syntax**
-- [x] **The app dashboard includes at least three summary statistics about the data such as**
-  - [x] *The number of displayed recipes based on searching through the datased*
-  - [x] *The total number of recipes retrieved from the database without the 25 max upper bound*
-  - [x] *Avergae ID of all currently displayed recipes*
-- [x] **A search bar allows the user to search for an item in the fetched data**
-- [x] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [x] **The app includes at least two unique chart developed using the fetched data that tell an interesting story**
+- [x] **Clicking on an item in the list view displays more details about it**
+- [x] **Clicking on an item has a direct, unique link to that item's detail view page**
+
 
 The following **optional** features are implemented:
 
-- [x] Multiple filters can be applied simultaneously
-- [ ] Filters use different input types such as a text input, a selection, or a slider
-- [ ] The user can enter specific bounds for filter values
+- [ ] The site's customized dashboard contains more content that explains what is interesting about the data
+- [ ] The site allows users to toggle between different data visualizations
 
 The following **additional** features are implemented:
 
@@ -32,10 +27,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-This shows searching through the dataset
-<img src='5-walkthrough.gif' title='Video Walkthrough 1' width='' alt='Video Walkthrough 1' />
-This shows filtering items in the database by specified categories
-<img src='5-walkthrough-2.gif' title='Video Walkthrough 2' width='' alt='Video Walkthrough 2' />
+<img src='6-walkthrough-2.gif' title='Video Walkthrough 1' width='' alt='Video Walkthrough 1' />
+
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with [Kap](https://getkap.co/) for macOS  
 <!-- Recommended tools:
@@ -45,7 +38,7 @@ GIF created with [Kap](https://getkap.co/) for macOS
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Encountered a bit of trouble making the charts (had trouble making sure input data was properly formatted).
 
 ## License
 
