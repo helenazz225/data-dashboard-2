@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from "react"
 const API_KEY = import.meta.env.VITE_APP_API_KEY
 import { useParams } from "react-router-dom"
+import Sidebar from "./Sidebar"
+import { Link } from "react-router-dom"
 
 const RecipeInfo = ({image, title, id}) => {
     let params = useParams()
@@ -50,13 +52,19 @@ const RecipeInfo = ({image, title, id}) => {
         //     <div className='col-3'>{id}</div>
         //     <div>{test && test}</div>
         // </div>
-        <div>
-            <img id='big-img' src={img}/>
-            <h1>{title2}</h1>
-            <h5>{`ID: ${params.id}`}</h5>
-            <h5>{`Health Score: ${healthScore}`}</h5>
-            <h5>{`Vegetarian: ${vegetarian}`}</h5>
-            <div>{`Source url: ${sourceURL}`}</div>
+
+        <div className="App">
+            <Link to="/" className="sidebar">
+                <Sidebar />
+            </Link>
+            <div>
+                <img id='big-img' src={img}/>
+                <h1>{title2}</h1>
+                <h5>{`ID: ${params.id}`}</h5>
+                <h5>{`Health Score: ${healthScore}`}</h5>
+                <h5>{`Vegetarian: ${vegetarian}`}</h5>
+                <div>{`Source url: ${sourceURL}`}</div>
+            </div>
             
         </div>
         // {/* {newList && newList.map((recipe) =>

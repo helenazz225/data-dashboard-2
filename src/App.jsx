@@ -8,6 +8,7 @@ import RecipeInfo from './components/recipeInfo'
 import { Link } from 'react-router-dom' 
 import RecipeChart from './components/recipeChart'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Label, BarChart, Bar, Legend } from "recharts"
+import Sidebar from './components/Sidebar'
 
 function App() {
   const [list, setList] = useState(null)
@@ -95,134 +96,139 @@ function App() {
   
   return (
     <div className="App">
+      <div className='sidebar'>
+        <Sidebar/>
+      </div>
+      <div className='right-side'>
       {/* <div>{API_KEY}</div> */}
-      <h1>My Recipe List</h1>
-      <div className='dashboard'>
-        <div className='card'>
-          <h5>Number of recipes displayed</h5>
-          <div>{newList && newList.length}</div>
-        </div>
-        <div className='card'>
-          <h5>Total number of recipes retrieved</h5>
-          <div>{totalResults}</div>
-        </div>
-        <div className='card'>
-          <h5>Average ID</h5>
-          {newList && newList.map((recipe) => {
-            sum += recipe[1].id
-          })}
-          <div> {sum / (newList && newList.length)} </div>
-        </div>
-      </div>
-      <div>
-        <input value={search} onChange={(e) => setSearch(e.target.value)}/>
-        <button className='search-button' onClick={() => {
-          handleTitleSearch();
-          handleAverageId();
-        }}>Search by title</button>
-        <button className='search-button' onClick={() => {
-          handleIDSearch();
-          handleAverageId();
-        }}>Search by ID</button>
-      </div>
-      <div className='filters'>
-        <div>Filter API Call</div>
-        <div className='filter-1'>
-          <div>{`Cuisine: ${cuisine}`}</div>
-          <div className='options'>
-            <button onClick={() => setCuisine('Italian')}>Italian</button>
-            <button onClick={() => setCuisine('Mediterranean')}>Mediterranean</button>
-            <button onClick={() => setCuisine('American')}>American</button>
-            <button onClick={() => setCuisine('')}>Reset</button>
+        <h1>My Recipe List</h1>
+        <div className='dashboard'>
+          <div className='card'>
+            <h5>Number of recipes displayed</h5>
+            <div>{newList && newList.length}</div>
+          </div>
+          <div className='card'>
+            <h5>Total number of recipes retrieved</h5>
+            <div>{totalResults}</div>
+          </div>
+          <div className='card'>
+            <h5>Average ID</h5>
+            {newList && newList.map((recipe) => {
+              sum += recipe[1].id
+            })}
+            <div> {sum / (newList && newList.length)} </div>
           </div>
         </div>
-        <div className='filter-2'>
-          <div>{`Diet: ${diet}`}</div>
-          <div className='options'>
-            <button onClick={() => setDiet('Vegetarian')}>Vegetarian</button>
-            <button onClick={() => setDiet('Vegan')}>Vegan</button>
-            <button onClick={() => setDiet('')}>Reset</button>
+        <div>
+          <input value={search} onChange={(e) => setSearch(e.target.value)}/>
+          <button className='search-button' onClick={() => {
+            handleTitleSearch();
+            handleAverageId();
+          }}>Search by title</button>
+          <button className='search-button' onClick={() => {
+            handleIDSearch();
+            handleAverageId();
+          }}>Search by ID</button>
+        </div>
+        <div className='filters'>
+          <div>Filter API Call</div>
+          <div className='filter-1'>
+            <div>{`Cuisine: ${cuisine}`}</div>
+            <div className='options'>
+              <button onClick={() => setCuisine('Italian')}>Italian</button>
+              <button onClick={() => setCuisine('Mediterranean')}>Mediterranean</button>
+              <button onClick={() => setCuisine('American')}>American</button>
+              <button onClick={() => setCuisine('')}>Reset</button>
+            </div>
           </div>
-        </div>
-        {/* <button>Call New Results</button> */}
-      </div>
-      <div>
-        <LineChart 
-          width={1300}
-          height={500}
-          data={data2 && data2}
-          margin={{top:10, right:30, left:20, bottom:30}}
-        >
-          <Line 
-            type="monotone"
-            dataKey="id"
-            stroke="#8884d8"
-          />
-          <CartesianGrid strokeDasharray="5 5" />
-          <XAxis dataKey="">
-            <Label value="Indices" position="insideBottom" dy={20}/>
-          </XAxis>
-
-          <YAxis label="Ids">
-            {/* <Label dx={50}/> */}
-          </YAxis>
-          <Tooltip/>
-        </LineChart>
-        <BarChart
-          width={1300}
-          height={500}
-          data={data2}
-          margin={{top:10, right:30, left:20, bottom:30}}
-          barSize={20}
-        >
-          <XAxis dataKey="" scale="band" padding={{ left: 0, right: 0 }}></XAxis>
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3"/>
-          <Bar dataKey="id"/>
-
-        </BarChart>
-      </div>
-      <div className="whole-page">
-        <div className='header'>
-          <div className='col-0'>Index</div>
-          <div className='col-1'>Image</div>
-          <div className='col-2'>Title</div>
-          <div className='col-3'>ID</div>
-        </div>
-        <div className='column'>
-          {newList && newList.map((recipe) =>
-            <div className='row'>
-              {/* <RecipeChart id={recipe[1].id}/> */}
-              <div>{recipe[0]}</div>
-              <img src={recipe[1].image} className='col-1'/>
-              <Link to={`/recipeInfo/${recipe[1].id}`} key={recipe[1].id} className='titles col-2'>{recipe[1].title}</Link>
-              <div className='col-3'>{recipe[1].id}</div>
+          <div className='filter-2'>
+            <div>{`Diet: ${diet}`}</div>
+            <div className='options'>
+              <button onClick={() => setDiet('Vegetarian')}>Vegetarian</button>
+              <button onClick={() => setDiet('Vegan')}>Vegan</button>
+              <button onClick={() => setDiet('')}>Reset</button>
             </div>
-          )} 
-            {/* {newList && newList.map((recipe) =>
-            <div className='row'>
-              <RecipeInfo 
-                image={recipe[1].image}
-                id={recipe[1].id}
-                title={recipe[1].title}
-              />
-            </div>
-          )}  */}
-          {/* {newList && newList.map((recipe) => {
-            // <RecipeInfo 
-            //   image={recipe[1].image}
-            //   title={recipe[1].title}
-            //   id={recipe[1].id}
-            // /> 
-            <div className='row'>{recipe}</div>
-          })} */}
-          {/* <RecipeInfo /> */}
+          </div>
+          {/* <button>Call New Results</button> */}
         </div>
-        {/* <div className='column'> 
-          <div className='header row'>Title</div>
-        </div> */}
+        <div>
+          <LineChart 
+            width={1300}
+            height={500}
+            data={data2 && data2}
+            margin={{top:10, right:30, left:20, bottom:30}}
+          >
+            <Line 
+              type="monotone"
+              dataKey="id"
+              stroke="#8884d8"
+            />
+            <CartesianGrid strokeDasharray="5 5" />
+            <XAxis dataKey="">
+              <Label value="Indices" position="insideBottom" dy={20}/>
+            </XAxis>
+
+            <YAxis label="Ids">
+              {/* <Label dx={50}/> */}
+            </YAxis>
+            <Tooltip/>
+          </LineChart>
+          <BarChart
+            width={1300}
+            height={500}
+            data={data2}
+            margin={{top:10, right:30, left:20, bottom:30}}
+            barSize={20}
+          >
+            <XAxis dataKey="" scale="band" padding={{ left: 0, right: 0 }}></XAxis>
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <CartesianGrid strokeDasharray="3 3"/>
+            <Bar dataKey="id"/>
+
+          </BarChart>
+        </div>
+        <div className="whole-page">
+          <div className='header'>
+            <div className='col-0'>Index</div>
+            <div className='col-1'>Image</div>
+            <div className='col-2'>Title</div>
+            <div className='col-3'>ID</div>
+          </div>
+          <div className='column'>
+            {newList && newList.map((recipe) =>
+              <div className='row'>
+                {/* <RecipeChart id={recipe[1].id}/> */}
+                <div>{recipe[0]}</div>
+                <img src={recipe[1].image} className='col-1'/>
+                <Link to={`/recipeInfo/${recipe[1].id}`} key={recipe[1].id} className='titles col-2'>{recipe[1].title}</Link>
+                <div className='col-3'>{recipe[1].id}</div>
+              </div>
+            )} 
+              {/* {newList && newList.map((recipe) =>
+              <div className='row'>
+                <RecipeInfo 
+                  image={recipe[1].image}
+                  id={recipe[1].id}
+                  title={recipe[1].title}
+                />
+              </div>
+            )}  */}
+            {/* {newList && newList.map((recipe) => {
+              // <RecipeInfo 
+              //   image={recipe[1].image}
+              //   title={recipe[1].title}
+              //   id={recipe[1].id}
+              // /> 
+              <div className='row'>{recipe}</div>
+            })} */}
+            {/* <RecipeInfo /> */}
+          </div>
+          {/* <div className='column'> 
+            <div className='header row'>Title</div>
+          </div> */}
+        </div>
       </div>
     </div>
   )
